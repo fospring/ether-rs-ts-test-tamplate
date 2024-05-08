@@ -1,0 +1,22 @@
+[package]
+name = "ethers-counter"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+k256 = "0.13.3"
+ethers = { git = "https://github.com/akfork/ethers-rs", branch = "master", version = "2.0.14", features = ["rustls", "ws"] }
+ecdsa = "0.16.9"
+tokio = { version = "1.37.0", features = ["rt", "rt-multi-thread", "time", "macros", "sync", "signal"] }
+anyhow = "1.0.83"
+dotenv = "0.15.0"
+hex = "0.4.3"
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
+
+[build-dependencies]
+ethers = { git = "https://github.com/akfork/ethers-rs", branch = "master", version = "2.0.14", features = ["abigen"] }
+convert_case = "0.6.0"
+shadow-rs = "0.27.1"
