@@ -49,8 +49,9 @@ async fn main() -> anyhow::Result<()> {
     let block = evm_provider
         .get_block(BlockId::Number(BlockNumber::Latest))
         .await?;
-    let base_fee = block.unwrap().base_fee_per_gas.unwrap().as_u128();
-    let max_fee = base_fee * 2;
+    tracing::info!(target: COUNTER_CLIENT, "block info: {:?}", block);
+    // let base_fee = block.unwrap().base_fee_per_gas.unwrap().as_u128();
+    // let max_fee = base_fee * 2;
 
     let contract_addr: Address = contract_addr.parse()?;
 
@@ -62,7 +63,7 @@ async fn main() -> anyhow::Result<()> {
         match contract
             .inc()
             .gas(3_000_000)
-            .gas_price(max_fee)
+            // .gas_price(max_fee)
             .send()
             .await
         {
