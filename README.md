@@ -22,5 +22,5 @@ change `.env.example` to `.env` and fill `PRIVATE_KEY` and `L2_RPC_URL`
 
 ## Run test on the target chain
 ```bash
-cargo run --releas
+cargo run --release
 ```
